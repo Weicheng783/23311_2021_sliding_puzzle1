@@ -42,8 +42,8 @@ public class GraphicsPanel extends JPanel implements MouseListener {
         super.paintComponent(g);
         for (int r = 0; r < ROWS; r++) {
             for (int c = 0; c < COLS; c++) {
-                int x = c * CELL_SIZE;
-                int y = r * CELL_SIZE;
+                int x = c * CELL_SIZE; //X represents columns
+                int y = r * CELL_SIZE; //Y represents rows
                 String text = puzzleModel.getFace(r, c);
                 if (text != null) {
                     g.setColor(Color.gray);
@@ -55,9 +55,9 @@ public class GraphicsPanel extends JPanel implements MouseListener {
             }
         }
     }
-    
+    //BUG ASSUMED...
     public int[] getTileXYFromCoordinates(MouseEvent e) {
-    	int[] tile = { e.getY() / CELL_SIZE, e.getX() / CELL_SIZE };
+    	int[] tile = { e.getX() / CELL_SIZE, e.getY() / CELL_SIZE };
     	return tile;
     }
     
